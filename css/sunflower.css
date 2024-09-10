@@ -5,7 +5,7 @@
 }
 
 :root {
-    --color-bg: linear-gradient(to top, #00d4ff, #000); 
+    --color-bg: linear-gradient(to top, #27373a, #000); 
     --line-color: linear-gradient(to left top, #82ff86 20%, #144425, #104e1c);
     --flower-center: radial-gradient(circle, #000, #ff5e00);
     --leaf-color: radial-gradient(circle, #82ff86, #104e1c);
@@ -19,9 +19,10 @@ body{
     align-items: flex-end;
     justify-content: center;
     overflow: hidden;
+    perspective: 1000px;
 }
 #lyrics {
-    font-size: 28px;
+    font-size: 35px;
     font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
     color: white;
     position: absolute;
@@ -29,6 +30,8 @@ body{
     z-index: 1;
     font-weight: bold;
     letter-spacing: 4px;
+    margin-left: 5%;
+    margin-right: 5%;
   }
   @media only screen and (max-width: 600px) {
     /* Estilos específicos para dispositivos con un ancho máximo de 600px */
@@ -43,7 +46,7 @@ body{
     cursor: pointer;
     border: 1px  #000;
     background-color: #000;
-    width: 10%;
+    width: 40%;
     margin-top: 50px;
     color: #000;
     font-size: 1.5em;

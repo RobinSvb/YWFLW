@@ -8,6 +8,7 @@
     <link rel="icon" href="img/flowers.png" type="image/x-icon" />
     <title>Flores de bandida</title>
   </head>
+ 
   <body class="container">
     <!-- <audio src="sound/ChristianBasso&HaienQiu-Flowers.mp3" autoplay></audio>    -->
     <audio  src="sound/amorplatonico.mp3" autoplay></audio>
@@ -17,6 +18,8 @@
     
     <h1 class="titulo"></h1>
     <div class="night"></div>
+    <button class="reproductor" style="width: 20%; vertical-align: top; align-self: first baseline;"><img src="img/playp.png" style="height: 15px; width: 15;"></button>
+   
     <div class="flowers">
       <div class="flower flower--1">
         <div class="flower__leafs flower__leafs--1">
@@ -310,7 +313,6 @@
           <div class="leaf leaf--3"></div>
         </div>
       </div>
-
       <div class="long-g long-g--7">
         <div class="grow-ans" style="--d: 3s">
           <div class="leaf leaf--0"></div>
@@ -324,9 +326,20 @@
         <div class="grow-ans" style="--d: 3.6s">
           <div class="leaf leaf--3"></div>
         </div>
-      </div>
+      </div>      
     </div>
+    
     <script src="anim.js"></script>
     <script src="index.js"></script>
+    <script>
+      let boton = document.querySelector(".reproductor")
+      let audioEtiqueta = document.querySelector("audio")
+  
+      boton.addEventListener("click", () => {
+        audioEtiqueta.setAttribute("src", "sound/amorplatonico.mp3")
+        audioEtiqueta.play()
+        console.log(`Reproduciendo: ${audioEtiqueta.src}`)
+      })
+  </script>
   </body>
 </html>

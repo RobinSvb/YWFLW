@@ -8,7 +8,7 @@ var lyricsData = [
   //{ text: "The whisper of birds", time: 18 },
 
   { text: "Eres algo inalcanzable", time: 15 },
-  { text: "Ya lo sé, pero no entiendo", time: 17.5 },
+  { text: "Ya lo sé, pero no entiendo", time: 17 },
   { text: "Sigo necio por tenerte", time: 22 },
   { text: "Fell from the sky", time: 32 },
   { text: "Like water drops", time: 33 },

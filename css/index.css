@@ -58,6 +58,19 @@ body {
     opacity: 1;
   }
 }
+/* Styling the button */
+.reproductor {
+  cursor: pointer;
+  border: 1px solid transparent;
+  background-color: transparent;
+  width: 20%;
+  margin-top: 50px;
+  color: transparent;
+  font-size: 1.5em;
+  box-shadow: 0 6px 6px rgba(0, 0, 0, 0.6);
+  margin-left: -50px;
+  align-self: self-start;
+}
 
 .night {
   z-index: -1;

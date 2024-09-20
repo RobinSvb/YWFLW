@@ -31,7 +31,7 @@ var lyricsData = [
 { text: "Desde la primera vez que te vi", time: 96 },
 { text: "Yo ya me lo veía venir", time:99  },
 { text: "Estar all in por ti", time:103  },
-{ text: "Porque yo ya sabía a lo que iba", time:104  },
+{ text: "Porque yo ya sabía a lo que iba", time:103  },
 { text: "Querer comprarnos un terreno y construirnos la vida", time: 107 },
 { text: "Porque contigo lo sabía", time: 113 },
 { text: "Que tú y yo vamos por la milla", time: 115 },
@@ -52,12 +52,12 @@ var lyricsData = [
 { text: "Sobre cuando me siento vulnerable", time: 183 },
 { text: "(Por ti sigo tratando, cavando)", time: 188 },
 { text: "Apapáchame la vida entera", time: 192 },
-{ text: "Quiero saberte a lo que quieres", time: 208 },
-{ text: "Llorar por lo que te hace llorar", time: 211 },
-{ text: "Ser música de la que prefieres", time: 214 },
-{ text: "Y que nunca me quieras pausar", time: 219 },
+{ text: "Quiero saberte a lo que quieres", time: 202 },
+{ text: "Llorar por lo que te hace llorar", time: 205 },
+{ text: "Ser música de la que prefieres", time: 209 },
+{ text: "Y que nunca me quieras pausar", time: 214 },
 
-  { text: "By @robinsvb_", time:221  },
+  { text: "By @robinsvb_", time:216  },
 ];
 
 // Animar las letras

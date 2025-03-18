@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galería de Imágenes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #000;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            position: relative;
+            width: 90%;
+            max-width: 500px;
+            height: auto;
+            overflow: hidden;
+            background: black;
+            border-radius: 10px;
+            box-shadow: 0px 4px 6px rgba(255, 255, 255, 0.1);
+        }
+        .slider {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+        .slide {
+            min-width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .slide img, .slide video {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+        .description {
+            padding: 10px;
+            text-align: center;
+            font-size: 14px;
+            color: #fff;
+            background: #222;
+            width: 100%;
+        }
+        .prev, .next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(255, 255, 255, 0.5);
+            color: black;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+        }
+        .prev { left: 10px; }
+        .next { right: 10px; }
+
+        @media (max-width: 768px) {
+            .container {
+                width: 95%;
+            }
+            .description {
+                font-size: 12px;
+            }
+            .prev, .next {
+                padding: 8px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="slider" id="slider">
+            <div class="slide">
+                <img src="img/primermsg.jpg" alt="Imagen 1">
+                <div class="description">Curioso como fue que me empezaron a conquistar</div>
+            </div>
+            <div class="slide">
+                <img src="img/WhatsApp Video 2025-03-17 at 19.57.56_4b2cba2e.mp4" alt="Imagen 2">
+                <div class="description">Tirando hate juntos</div>
+            </div>
+            <div class="slide">
+                <img src="img/primersorpresa.jpg" alt="Imagen 3">
+                <div class="description">Aqui se notaba que me querias conquistar</div>
+            </div>
+            <div class="slide">
+                <video controls>
+                    <source src="img/WhatsApp Video 2025-03-17 at 19.57.56_4b2cba2e.mp4" type="video/mp4">
+                    Tu navegador no soporta el elemento de video.
+                </video>
+                <div class="description">Tirando hate juntos</div>
+            </div>
+        </div>
+        <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
+        <button class="next" onclick="moveSlide(1)">&#10095;</button>
+    </div>
+
+    <script>
+        let index = 0;
+        function moveSlide(step) {
+            const slider = document.getElementById("slider");
+            const totalSlides = document.querySelectorAll(".slide").length;
+            index = (index + step + totalSlides) % totalSlides;
+            slider.style.transform = `translateX(-${index * 100}%)`;
+        }
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

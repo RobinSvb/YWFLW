@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Galería de Imágenes</title>
+    <title>Our Story</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
     <style>
         body {
@@ -48,6 +48,18 @@
             background: #222;
             width: 100%;
         }
+        .button-container {
+            margin-top: 10px;
+        }
+        .btn-link {
+            padding: 8px 15px;
+            background-color: #1a0270;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+        }
         .prev, .next {
             position: absolute;
             top: 50%;
@@ -80,25 +92,42 @@
         <div class="slider" id="slider">
             <div class="slide">
                 <img src="img/primermsg.jpg" alt="Imagen 1">
-                <div class="description">Curioso como fue que me empezaron a conquistar</div>
+                <div class="description">De cuando te animaste a hablarme...</div>
             </div>
             <div class="slide">
-                <div class="button-container">
-                    <a href="ctym.html" class="btn-link">Florecitas </a>
-                </div>
-                <div class="description">Llevaba tiempo buscando a quien cantarle...</div>
+                <img src="img/hmac.jpg" alt="Imagen 2">
+                <div class="description">Enamorarte de la inteligencia no es habitual</div>
             </div>
             <div class="slide">
-                <img src="img/primersorpresa.jpg" alt="Imagen 3">
-                <div class="description">Aqui se notaba que me querias conquistar</div>
+                <img src="img/virus.jpg" alt="Imagen 3">
+                <div class="description">Enamorarte de la inteligencia no es habitual x2</div>
             </div>
             <div class="slide">
                 <video controls>
-                    <source src="img/WhatsApp Video 2025-03-17 at 19.57.56_4b2cba2e.mp4" type="video/mp4">
+                    <source src="img/chatflores.mp4" type="video/mp4">
                     Tu navegador no soporta el elemento de video.
                 </video>
-                <div class="description">Tirando hate juntos</div>
             </div>
+            <div class="slide">
+                <div class="button-container">
+                    <a href="ctym.html" class="btn-link">
+                        <img src="img/flores.png" alt="Imagen 5">
+                    </a>
+                </div>
+                <br>
+                <div class="description">Click a la imagen</div>
+            </div>
+
+            <div class="slide">
+                <div class="button-container">
+                        <img src="img/pdf/pdfini.jpg" alt="Imagen 6">
+                </div>
+                <br>
+                <div class="description"><a href="img/pdf/pdf.pdf" download="AnalisisDeductivo.pdf" class="btn-link">Descargar Documento</a></div>
+            </div>
+
+
+            
         </div>
         <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
         <button class="next" onclick="moveSlide(1)">&#10095;</button>

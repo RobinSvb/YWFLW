@@ -320,11 +320,11 @@
                 </audio>
             </div>
             <div class="slide">
-                <video controls>
+                <video id="VideoFinal" controls>
                     <source src="img/testvideo.mp4" type="video/mp4">
                     Tu navegador no soporta el elemento de video.
                 </video>
-                <div class="botones-si-no">
+                <div class="botones-si-no" id="botones" style="display: none;">
                     <button class="btn-si" onclick="window.location.href='https://wa.link/wjzg9v';">Sí💙</button>
                     <button class="btn-no" onclick="window.location.href='https://vm.tiktok.com/ZMBmH66JH/';">No🙂</button>
                 </div>
@@ -346,5 +346,20 @@
         }
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const video = document.getElementById('VideoFinal');
+        const botones = document.getElementById('botones');
+        let mostrado = false;
+      
+        video.addEventListener('timeupdate', () => {
+          if (video.currentTime >= 3 && !mostrado) { // en el segundo 15
+            botones.style.display = 'flex';
+            mostrado = true;
+          }else if (video.currentTime < 3 && mostrado) {
+            botones.style.display = 'none';
+            mostrado = false;
+            }
+        });
+      </script>
 </body>
 </html>

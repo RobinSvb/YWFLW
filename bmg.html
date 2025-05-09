@@ -352,10 +352,10 @@
         let mostrado = false;
       
         video.addEventListener('timeupdate', () => {
-          if (video.currentTime >= 221 && !mostrado) { // en el segundo 15
+          if (video.currentTime >= 221.5 && !mostrado) { // en el segundo 15
             botones.style.display = 'flex';
             mostrado = true;
-          }else if (video.currentTime < 221 && mostrado) {
+          }else if (video.currentTime < 221.5 && mostrado) {
             botones.style.display = 'none';
             mostrado = false;
             }

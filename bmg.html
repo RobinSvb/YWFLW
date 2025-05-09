@@ -321,7 +321,7 @@
             </div>
             <div class="slide">
                 <video id="VideoFinal" controls>
-                    <source src="img/testvideo.mp4" type="video/mp4">
+                    <source src="img/finalvideo.mp4" type="video/mp4">
                     Tu navegador no soporta el elemento de video.
                 </video>
                 <div class="botones-si-no" id="botones" style="display: none;">
@@ -352,10 +352,10 @@
         let mostrado = false;
       
         video.addEventListener('timeupdate', () => {
-          if (video.currentTime >= 3 && !mostrado) { // en el segundo 15
+          if (video.currentTime >= 221 && !mostrado) { // en el segundo 15
             botones.style.display = 'flex';
             mostrado = true;
-          }else if (video.currentTime < 3 && mostrado) {
+          }else if (video.currentTime < 221 && mostrado) {
             botones.style.display = 'none';
             mostrado = false;
             }

@@ -30,8 +30,26 @@
     }
 
     body { background: #f7f7fb; }
-    .board { display: grid; grid-template-columns: repeat(var(--grid-size), var(--cell-size)); grid-template-rows: repeat(var(--grid-size), var(--cell-size)); gap: .25rem; user-select: none; touch-action: manipulation; justify-content: center; margin-inline: auto; width: max-content; max-width: 100%; overflow: auto; padding: .25rem; border-radius: 1rem; background: white; box-shadow: 0 10px 25px rgba(0,0,0,.06); }
-    .cell { width: var(--cell-size); height: var(--cell-size); display: flex; align-items: center; justify-content: center; font-weight: 600; font-size: var(--cell-font); text-transform: uppercase; border-radius: .6rem; background: #f1f3f5; color: #212529; transition: transform .07s ease, background .15s ease, color .15s ease, box-shadow .15s ease; }
+   .board {
+  display: grid;
+  grid-template-columns: repeat(var(--grid-size), 1fr);
+  gap: .15rem;
+  user-select: none;
+  touch-action: manipulation;
+  margin-inline: auto;
+  width: 100%;
+  max-width: 100%;
+  padding: .25rem;
+  border-radius: 1rem;
+  background: white;
+  box-shadow: 0 10px 25px rgba(0,0,0,.06);
+}
+.cell {
+  aspect-ratio: 1/1;   /* hace cada celda cuadrada */
+  font-size: clamp(.6rem, 2vw, 1rem);
+}
+
+.cell { width: var(--cell-size); height: var(--cell-size); display: flex; align-items: center; justify-content: center; font-weight: 600; font-size: var(--cell-font); text-transform: uppercase; border-radius: .6rem; background: #f1f3f5; color: #212529; transition: transform .07s ease, background .15s ease, color .15s ease, box-shadow .15s ease; }
     .cell:hover { transform: translateY(-2px); box-shadow: 0 .2rem .6rem rgba(0,0,0,.08); }
     .cell[data-state="placed"] { background: #eaf3ff; color: #0a58ca; }
     .cell[data-state="selecting"] { outline: 2px solid var(--accent); background: #fff7e6; }
@@ -143,7 +161,7 @@
     ,"IDK"
     ,"ORA"
     ,"AMOAQUI"
-    ,"CACAOSETENTE"
+    ,"CACAO70"
     ,"AZUL"
     ,"FRESITA"
     ,"BONIS"

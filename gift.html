@@ -178,6 +178,19 @@
     transform: translateY(-50px) scale(1);
   }
 
+/* --- CÓDIGO SOLO PARA CELULARES --- */
+  @media (max-width: 768px) {
+    .gift-container {
+      /* Hacemos el regalo un 60% más grande */
+      transform: scale(1.6); 
+      
+      /* Nos aseguramos de que crezca hacia arriba desde el suelo */
+      transform-origin: bottom center;
+      
+      /* Ajustamos un poco el margen para que no quede muy pegado al borde */
+      margin-bottom: 80px; 
+    }
+  }
 </style>
 </head>
 <body>

@@ -1,0 +1,20 @@
+
+:root{ --bg:#f7f7f7; --fg:#222; }
+*{box-sizing:border-box}
+html,body{height:100%}
+body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,Helvetica,sans-serif;background:var(--bg);color:var(--fg);}
+.wrap{width:min(900px,96vw);margin:0 auto;}
+header{display:flex;align-items:center;justify-content:space-between;gap:.75rem;padding:1rem .75rem .5rem}
+h1{font-size:1.05rem;margin:0;font-weight:700;letter-spacing:.2px}
+.hud{display:flex;gap:1rem;align-items:center;font-variant-numeric:tabular-nums;flex-wrap:wrap}
+.hud b{min-width:3.5ch;display:inline-block;text-align:right}
+.btn{appearance:none;border:1px solid #ccc;background:#fff;color:var(--fg);padding:.5rem .8rem;border-radius:.6rem;cursor:pointer;transition:.2s;box-shadow:0 1px 0 rgba(0,0,0,.05)}
+.btn:hover{transform:translateY(-1px)}
+.btn:active{transform:translateY(0)}
+canvas{width:100%;height:auto;display:block;border:2px solid #e5e5e5;border-radius:14px;background:linear-gradient(#eaf4ff,#ffffff 60%)}
+footer{opacity:.8;font-size:.85rem;padding:.5rem .75rem 5rem}
+.ui-footer-fixed{border-top:1px solid #ddd}
+.control-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:.5rem;padding:.5rem}
+
+
+

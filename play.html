@@ -1,0 +1,56 @@
+<!-- =============================
+Archivo: index.html
+============================== -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <title>Runner — tipo Dinosaurio</title>
+
+  <!-- jQuery + jQuery Mobile (para controles táctiles en teléfono) -->
+  <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css"/>
+  <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+  <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+  <!-- Estilos propios -->
+  <link rel="stylesheet" href="css/play.css" />
+</head>
+<body>
+  <div data-role="page" id="page-game">
+    <div role="main" class="ui-content">
+      <div class="wrap">
+        <header>
+          <h1>Runner — tipo Dinosaurio</h1>
+          <div class="hud">
+            Puntos: <b id="score">00000</b>
+            Mejor: <b id="best">00000</b>
+            Vel.: <b id="speed">0.0</b>
+            <button id="toggle" class="btn" title="Pausar/Reanudar (P)">⏯️ Pausa</button>
+            <button id="restart" class="btn" title="Reiniciar (R)">🔄 Reiniciar</button>
+          </div>
+        </header>
+
+        <canvas id="game" width="960" height="260" aria-label="Juego tipo dinosaurio"></canvas>
+
+        <footer>
+          Controles: <b>Espacio/↑</b> saltar · <b>↓</b> agacharse (mantener) · <b>P</b> pausa · <b>R</b> reiniciar. En móvil usa los botones inferiores.
+        </footer>
+      </div>
+    </div>
+
+    <!-- Controles táctiles fijos (jQuery Mobile) -->
+    <div data-role="footer" data-position="fixed">
+      <div class="control-grid">
+        <a href="#" id="btnLeft"  class="ui-btn ui-corner-all ui-shadow">⏸/▶️</a>
+        <a href="#" id="btnJump"  class="ui-btn ui-corner-all ui-shadow ui-btn-b">⤴️ Saltar</a>
+        <a href="#" id="btnDuck"  class="ui-btn ui-corner-all ui-shadow">⤵️ Agacharse</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Lógica del juego -->
+  <script src="play.js" defer></script>
+</body>
+</html>
+

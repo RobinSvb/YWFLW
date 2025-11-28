@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Regalo para Santa</title>
+<style>
+  /* Variables de color para personalizar fácilmente */
+  :root {
+    --box-color: #d32f2f;      /* Rojo navidad */
+    --ribbon-color: #fdd835;   /* Dorado */
+    --paper-color: #fffbf0;    /* Color pergamino */
+    --bg-color: #1a2f3f;       /* Fondo nocturno */
+  }
+
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end; /* Alinear al fondo para que parezca suelo */
+    height: 100vh;
+    margin: 0;
+    background-color: var(--bg-color);
+    /* Un fondo simple de nieve */
+    background-image: radial-gradient(circle at 50% 50%, rgba(255,255,255,0.1) 2px, transparent 2px);
+    background-size: 30px 30px;
+    font-family: 'Arial', sans-serif;
+    overflow: hidden; /* Evitar barras de desplazamiento durante la animación */
+    padding-bottom: 50px; /* Espacio inferior */
+  }
+
+  /* El contenedor principal del regalo */
+  .gift-container {
+    position: relative;
+    width: 300px;
+    height: 200px;
+    cursor: pointer;
+    /* Perspectiva para el efecto 3D al abrir */
+    perspective: 1000px;
+  }
+
+  /* --- ESTRUCTURA DE LA CAJA --- */
+  .gift-box {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 150px; /* Altura del cuerpo de la caja */
+    background-color: var(--box-color);
+    border-radius: 0 0 10px 10px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+    z-index: 2;
+  }
+
+  /* Cinta vertical del cuerpo */
+  .gift-box::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 30px;
+    height: 100%;
+    background-color: var(--ribbon-color);
+    box-shadow: 0 0 5px rgba(0,0,0,0.1);
+  }
+
+  /* --- ESTRUCTURA DE LA TAPA --- */
+  .gift-lid {
+    position: absolute;
+    top: 40px; /* Posición inicial justo encima del cuerpo */
+    left: -5%; /* Un poco más ancha que la caja */
+    width: 110%;
+    height: 40px;
+    background-color: var(--box-color);
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    z-index: 3;
+    /* Definimos el punto de pivote para la rotación (la parte trasera inferior) */
+    transform-origin: bottom center;
+    transition: all 0.6s cubic-bezier(0.4, 0.0, 0.2, 1);
+  }
+
+  /* Cinta vertical de la tapa */
+  .gift-lid::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 30px;
+    height: 100%;
+    background-color: var(--ribbon-color);
+  }
+
+  /* El lazo (moño) arriba de la tapa */
+  .gift-bow {
+    position: absolute;
+    top: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 30px;
+    z-index: 4;
+    /* Creamos el lazo usando bordes redondeados */
+  }
+  .gift-bow::before, .gift-bow::after {
+    content: '';
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    border: 8px solid var(--ribbon-color);
+    border-radius: 50%;
+    top: 0;
+  }
+  .gift-bow::before { left: -15px; transform: skew(10deg); }
+  .gift-bow::after { right: -15px; transform: skew(-10deg); }
+
+
+  /* --- LA LISTA DE DESEOS (Escondida inicialmente) --- */
+  .wishlist {
+    position: absolute;
+    bottom: 150px; /* Inicialmente escondida dentro/detrás de la caja */
+    left: 10%;
+    width: 80%;
+    background-color: var(--paper-color);
+    padding: 20px;
+    box-sizing: border-box;
+    border-radius: 5px 5px 0 0;
+    box-shadow: inset 0 0 20px rgba(0,0,0,0.05);
+    font-family: 'Comic Sans MS', cursive, sans-serif; /* Fuente tipo carta */
+    color: #333;
+    z-index: 1; /* Detrás de la caja */
+    
+    /* Estado inicial de la animación */
+    opacity: 0;
+    transform: translateY(100px) scale(0.8);
+    transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1); /* Efecto rebote */
+    transition-delay: 0.1s; /* Esperar un poco a que se abra la tapa */
+  }
+
+  .wishlist h2 {
+    margin: 0 0 10px 0;
+    text-align: center;
+    color: #d32f2f;
+    font-size: 1.2rem;
+  }
+  .wishlist h4 {
+    padding-left: 20px;
+    margin: 0;
+    margin-left: -40px;
+    margin-bottom: 9px;
+  }
+
+  .wishlist ul {
+    padding-left: 20px;
+    margin: 0;
+  }
+  
+  .wishlist li {
+    margin-bottom: 8px;
+  }
+
+  /* --- ESTADOS DE ANIMACIÓN (Cuando se añade la clase .open) --- */
+
+  /* 1. Animar la tapa */
+  .gift-container.open .gift-lid {
+    /* Se levanta (translateY) y rota hacia atrás (rotateX) */
+    transform: translateY(-60px) rotateX(-110deg);
+  }
+  
+  /* 2. Animar el lazo junto con la tapa */
+  .gift-container.open .gift-bow {
+     /* Pequeño ajuste para que siga a la tapa visualmente */
+    transition: all 0.6s ease;
+    opacity: 0.8;
+  }
+
+  /* 3. Animar la salida de la lista */
+  .gift-container.open .wishlist {
+    opacity: 1;
+    /* Sube a su posición final y escala a tamaño normal */
+    transform: translateY(-50px) scale(1);
+  }
+
+</style>
+</head>
+<body>
+
+  <div class="gift-container" id="myGift">
+    
+    <div class="wishlist">
+      <h2>Querido Santa:</h2>
+      <ul>
+        <h4>Que nunca me falte...</h4>
+        <li>Su "morning bonis"</li>
+        <li>Su outfit check</li>
+        <li>Sus ojitos con el rayito de sol</li>
+        <li>Su sonrisa cuando la chuleo</li>
+        <li>Su foto en el gym</li>
+        <li>Su momento menos rockstar en mis brazos</li>
+      </ul>
+    </div>
+
+    <div class="gift-lid">
+      <div class="gift-bow"></div>
+    </div>
+    
+    <div class="gift-box"></div>
+    
+  </div>
+
+<script>
+  // JavaScript simple para manejar el clic
+  const gift = document.getElementById('myGift');
+
+  gift.addEventListener('click', () => {
+    // Alterna la clase 'open' en el contenedor principal
+    // Esto dispara todas las animaciones CSS
+    gift.classList.toggle('open');
+  });
+</script>
+
+</body>
+</html>

@@ -208,11 +208,19 @@
 <script>
   // JavaScript simple para manejar el clic
   const gift = document.getElementById('myGift');
+  
 
   gift.addEventListener('click', () => {
     // Alterna la clase 'open' en el contenedor principal
     // Esto dispara todas las animaciones CSS
+    gift.addEventListener('click', toggleGift);
+  gift.addEventListener('touchstart', toggleGift);
+
+  function toggleGift(e) {
+    // Evita que se dispare dos veces en algunos dispositivos
+    e.preventDefault(); 
     gift.classList.toggle('open');
+  }
   });
 </script>
 

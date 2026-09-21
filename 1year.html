@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <title>Too Much</title>
+    <link rel="stylesheet" href="1year.css">
+</head>
+<body>
+
+    <!-- Contador de tiempo adaptable -->
+    <div id="text-overlay">
+        <div class="counter-title">This is too much... and we’re just getting started ❤️</div>
+        <div id="counter">
+            <span id="days">0</span> días, 
+            <span id="hours">0</span> horas, 
+            <span id="minutes">0</span> minutos, 
+            <span id="seconds">0</span> segundos
+        </div>
+    </div>
+
+    <!-- GIF central flotante (Soluciona el error CORS por completo) -->
+    <div id="central-gif-container">
+        <img src="img/1year/centralgif1.gif" alt="GIF Central">
+    </div>
+
+    <!-- Contenedor de marcos de fotos flotantes 3D -->
+    <div id="image-container">
+        <div class="photo-frame" data-text="Nuestro primer viaje juntos ❤️" data-detail="El día que fuimos a la playa y vimos el atardecer.">
+            <img src="foto1.jpg" alt="Recuerdo 1" onerror="this.src='https://via.placeholder.com/150/ff69b4/fff?text=Foto+1'">
+        </div>
+        <div class="photo-frame" data-text="Nuestra cena especial 🍷" data-detail="Celebrando nuestro aniversario con mucha felicidad.">
+            <img src="foto2.jpg" alt="Recuerdo 2" onerror="this.src='https://via.placeholder.com/150/ff1493/fff?text=Foto+2'">
+        </div>
+        <div class="photo-frame" data-text="Tardes de risas infinitas ✨" data-detail="Cualquier momento a tu lado es mi favorito.">
+            <img src="foto3.jpg" alt="Recuerdo 3" onerror="this.src='https://via.placeholder.com/150/db7093/fff?text=Foto+3'">
+        </div>
+        <div class="photo-frame" data-text="Mi persona favorita 🌻" data-detail="Gracias por este año tan maravilloso juntos.">
+            <img src="foto4.jpg" alt="Recuerdo 4" onerror="this.src='https://via.placeholder.com/150/ffb6c1/fff?text=Foto+4'">
+        </div>
+    </div>
+
+    <!-- Ventana Modal (Popup) -->
+    <div id="popup-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <img id="modal-img" src="" alt="Foto ampliada">
+            <h2 id="modal-title">Título del recuerdo</h2>
+            <p id="modal-detail">Detalle especial...</p>
+        </div>
+    </div>
+
+    <!-- Librería Three.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    
+    <!-- Tu archivo de JavaScript -->
+    <script src="1year.js"></script>
+</body>
+</html>
